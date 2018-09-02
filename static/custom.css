@@ -1,0 +1,36 @@
+html {
+    font-size: 200%;
+}
+
+.row {
+    display: block;
+}
+
+header-bar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+}
+
+.tile-enabled {height:100%;}
+
+.bgblue {background-color: blue;}
+
+.tile {height:100%;}
+
+.tile-footer {
+    height: 10%;
+}
+
+.tile-content-wrapper {
+    height: 90%;
+    margin: 0 auto;
+    padding-top: 20%;
+}
+
+
+
+.bottom-align {
+
+}

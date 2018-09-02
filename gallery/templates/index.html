@@ -1,0 +1,101 @@
+{% macro insert_footer(idx) %}
+                <div class="row tile-footer">
+                {% if idx > 1 %}
+                    <a href="#q{{idx - 1}}" class="medium material-icons" title="Previous">navigate_before</a>
+                {% endif %}
+                    <a href="#q{{idx + 1}}" class="medium material-icons" title="Next">navigate_next</a>
+                </div>
+{% endmacro %}
+
+{% extends 'questionnaire_layout.html' %}
+{% block content %}
+        <form method="post" action="/">
+            {{form.csrf_token}}
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        <div class="form-group">
+                            {{idx}}. {{form.demo_str.label}}
+                            {{form.demo_str(class_="form-control", placeholder="Placeholder text")}}
+                        </div>
+                    </div>
+                </div>
+              {{ insert_footer(idx) }}
+              {% set idx = idx + 1 %}
+            </div>
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        <div class="form-group">
+                            {{idx}}. {{form.demo_select.label}}
+                            {{form.demo_select(class_="form-control")}}
+                        </div>
+                    </div>
+                </div>
+                {{ insert_footer(idx) }}
+                {% set idx = idx + 1 %}
+            </div>
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        {{idx}}. {{form.demo_radio.label}}
+                        {% for option in form.demo_radio %}
+                        <div class="form-check">
+                            {{option(class_="form-check-input")}}
+                            {{option.label(class_="form-check-label")}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {{ insert_footer(idx) }}
+                {% set idx = idx + 1 %}
+            </div>
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        {{idx}}. Same form but on one row<br/>
+                        {% for option in form.demo_radio %}
+                        <div class="form-check form-check-inline">
+                            {{option(class_="form-check-input")}}
+                            {{option.label(class_="form-check-label")}}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {{ insert_footer(idx) }}
+                {% set idx = idx + 1 %}
+            </div>
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        {{idx}}. {{form.demo_boolean.label}}
+                        <div class="form-check">
+                            {{form.demo_boolean}}
+                        </div>
+                    </div>
+                </div>
+                {{ insert_footer(idx) }}
+                {% set idx = idx + 1 %}
+            </div>
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        {{idx}}. At the end, ask user to commit answers <br/>
+                        <input type="submit" class="btn btn-lg btn-primary" value="Submit my answers">
+                    </div>
+                </div>
+                <div class="row tile-footer">
+                    <a href="#q{{idx-1}}" class="medium material-icons" title="Previous">navigate_before</a>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+{% endblock %}
+
