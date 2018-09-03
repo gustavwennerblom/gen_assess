@@ -43,7 +43,7 @@
                     <div class="col">
                         {{idx}}. {{form.demo_radio.label}}
                         {% for option in form.demo_radio %}
-                        <div class="form-check">
+                        <div class="form-check option-frame">
                             {{option(class_="form-check-input")}}
                             {{option.label(class_="form-check-label")}}
                         </div>
@@ -59,7 +59,7 @@
                     <div class="col">
                         {{idx}}. Same form but on one row<br/>
                         {% for option in form.demo_radio %}
-                        <div class="form-check form-check-inline">
+                        <div class="form-check form-check-inline option-frame">
                             {{option(class_="form-check-input")}}
                             {{option.label(class_="form-check-label")}}
                         </div>
@@ -76,6 +76,69 @@
                         {{idx}}. {{form.demo_boolean.label}}
                         <div class="form-check">
                             {{form.demo_boolean}}
+                        </div>
+                    </div>
+                </div>
+                {{ insert_footer(idx) }}
+                {% set idx = idx + 1 %}
+            </div>
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        {{idx}}a. {{form.demo_date.label}}
+                        <div class="form-group">
+                            {{form.demo_date}}
+                        </div>
+                    </div>
+                    <div class="col">
+                        {{idx}}b. {{form.demo_datetime.label}}
+                        <div class="form-group">
+                            {{form.demo_datetime}}
+                        </div>
+                    </div>
+                </div>
+                {{ insert_footer(idx) }}
+                {% set idx = idx + 1 %}
+            </div>
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        {{idx}}. {{form.demo_email.label}}
+                        <div class="input-group input-group-lg">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <div>
+                                {{form.demo_email(class_="form-control-lg", placeholder="Your email")}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{ insert_footer(idx) }}
+                {% set idx = idx + 1 %}
+            </div>
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        {{idx}}. {{form.demo_textarea.label}}
+                        <div class="form-group">
+                            {{form.demo_textarea(class_="form-control", placeholder="Looong text")}}
+                        </div>
+                    </div>
+                </div>
+                {{ insert_footer(idx) }}
+                {% set idx = idx + 1 %}
+            </div>
+
+            <div class="row" id="q{{idx}}">
+                <div class="tile-content-wrapper">
+                    <div class="col">
+                        {{idx}}. {{form.demo_range.label}}
+                        <div class="form-group">
+                            {{form.demo_range(class_="form-control")}}
                         </div>
                     </div>
                 </div>

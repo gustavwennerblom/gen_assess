@@ -4,7 +4,7 @@ html {
 
 body {
     font-family: Calibre-Light, "Montserrat", "Segoe UI", Roboto, Arial, sans-serif;
-    background-color: #b2dfdb;
+    background-color: #eeeeee;
     font-size: 1.2rem;
 }
 
@@ -27,7 +27,7 @@ a:hover {
 .tile-content-wrapper {
     height: 90%;
     margin: 0 auto;
-    padding-top: 40%;
+    padding-top: 40vh;
 }
 
 .tile-footer {
@@ -57,3 +57,10 @@ header {
     z-index: 100;
     padding-top: 15px;
 }
+
+.option-frame {
+    padding: 10px 30px 10px 30px;
+    background-color: rgba(0,0,0,0.2);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    }
